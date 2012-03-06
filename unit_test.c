@@ -169,6 +169,6 @@ void assert_strings_equal_n(const char * str1, const char * str2, int n) {
 
 void assert_ints_equal(int i1, int i2) {
 	char msg[128];
-	sprintf(msg, "%x to be equal to %x", i1, i2); 
+	sprintf(msg, "0x%x to be equal to 0x%x", i1, i2); 
 	core_assert((i1==i2), msg);
 }
