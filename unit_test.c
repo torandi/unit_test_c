@@ -148,8 +148,8 @@ void assert_lt(int v1, int v2) {
 }
 
 void assert_strings_equal(const char * str1, const char * str2) {
-	char msg[128];
-	if(strlen(str1)+strlen(str2) < 100) {
+	char msg[256];
+	if(strlen(str1)+strlen(str2) < 240) {
 		sprintf(msg, "\"%s\" to be equal to \"%s\"", str1, str2); 
 	} else {
 		sprintf(msg, "strings to be equal");
@@ -158,8 +158,8 @@ void assert_strings_equal(const char * str1, const char * str2) {
 }
 
 void assert_strings_equal_n(const char * str1, const char * str2, int n) {
-	char msg[128];
-	if(2*n < 100) {
+	char msg[256];
+	if(2*n < 240) {
 		sprintf(msg, "\"%.*s\" to be equal to \"%.*s\"", n,str1,n, str2); 
 	} else {
 		sprintf(msg, "strings to be equal");
