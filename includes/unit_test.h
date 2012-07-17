@@ -35,4 +35,7 @@ void assert_strings_equal(const char * str1, const char * str2); //Assert string
 void assert_strings_equal_n(const char * str1, const char * str2, int n); //Assert strings equal up to char n
 void assert_ints_equal(int i1, int i2);
 
+//Custom assertion, same as assert_true but with custom msg
+void assert_custom(int expr, const char * msg);
+
 #endif

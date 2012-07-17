@@ -44,7 +44,7 @@ void begin_test_suite() {
 	active_test_suite = 1;
 }
 
-int  end_test_suite() {
+int end_test_suite() {
 	assert_active_test_suite();
 	active_test_suite = 0;
 	const char * status;
@@ -58,7 +58,7 @@ int  end_test_suite() {
 	}
 	printf("Test suite %s. Succesive tests: %d/%d\n", status, success_tests, total_tests);
 	reset_color();
-	return (success_tests == total_tests);
+	return !(success_tests == total_tests);
 }
 
 void begin_context(const char * context) {
@@ -70,14 +70,14 @@ void begin_context(const char * context) {
 	printf("==== %s ====\n", context);
 }
 
-int  end_context() {
+int end_context() {
 	const char * status;
 
 	end_test();
 
 	printf("==============================\n");
 	printf("Result for %s: %d/%d successfull tests\n", current_context, context_success, context_tests);
-	return (context_success == context_tests);
+	return !(context_success == context_tests);
 }
 
 void begin_test(const char * test_name) {
@@ -103,10 +103,10 @@ int end_test() {
 			color(SH_FG_GREEN);
 			printf("Test %s: OK\n", current_test);
 			reset_color();
-			return 1;
+			return 0;
 		} else {
 			test_status = -1;
-			return 0;
+			return 1;
 		}
 	}
 }
@@ -125,6 +125,10 @@ static void core_assert(int expr, const char * error_msg) {
 			reset_color();
 		}
 	} 
+}
+
+void assert_custom(int expr, const char * msg) {
+	core_assert(expr, msg);
 }
 
 void assert_true(int expr) {
