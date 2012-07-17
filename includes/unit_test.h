@@ -7,7 +7,13 @@
 #ifndef UNIT_TEST_H
 #define UNIT_TEST_H
 
+/**
+ * Start test suite. Must be called before anything else
+ */
 void begin_test_suite();
+/**
+ * End test suite, must be called last
+ */
 int end_test_suite();
 
 //Note: Contexts doesn't stack!
