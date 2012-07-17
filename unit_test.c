@@ -48,7 +48,7 @@ int end_test_suite() {
 	assert_active_test_suite();
 	active_test_suite = 0;
 	const char * status;
-	printf("\n============= END TEST SUITE ===============\n");
+	printf("============= END TEST SUITE ===============\n");
 	if(success_tests == total_tests) {
 		status = "succeeded";
 		color(SH_FG_GREEN);
@@ -76,7 +76,7 @@ int end_context() {
 	end_test();
 
 	printf("==============================\n");
-	printf("Result for %s: %d/%d successfull tests\n", current_context, context_success, context_tests);
+	printf("Result for %s: %d/%d successfull tests\n\n", current_context, context_success, context_tests);
 	return !(context_success == context_tests);
 }
 
