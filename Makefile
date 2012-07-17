@@ -1,7 +1,7 @@
 all: libunittest.a
 
 clean: 
-	rm -f unit_test.o sh_colors.o lib/libunittest.a
+	rm -rf unit_test.o sh_colors.o lib/
 
 lib:
 	mkdir -p lib
