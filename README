@@ -1,0 +1,29 @@
+Simple unit test library for c programs.
+
+Usage:
+========================
+
+begin_test_suite(); //Start test suite, must always be called first
+
+	begin_context("First tests"); // Start a context. A context must always be active
+											// when tests are run. This is mostly just a help 
+											// for grouping tests
+		begin_test("Test 1");		// Start a test
+			assert_true(foo);			// Assert true
+
+			assert_gt(baz, 5);		// Assert baz > 5
+		end_test();
+
+		begin_test("Test 2");		// Next test
+			assert_ints_equal(foobar, 10);
+			assert_strings_equal(baz, "foo");				  // Use strcmp
+			assert_strings_equal_n(a_string, "foobar", 6); // Use strncmp
+		end_test();
+	end_context()
+
+	begin_contex("...");
+		...
+
+	end_context();
+
+end_test_suite();
