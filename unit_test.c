@@ -141,7 +141,7 @@ void assert_false(int expr) {
 
 void assert_gt(int v1,int  v2) {
 	char msg[128];
-	sprintf(msg, "%d to be greater than %d", v1, v2); 
+	sprintf(msg, "%d to be greater than %d", v1, v2);
 	core_assert((v1>v2), msg);
 }
 
@@ -173,6 +173,6 @@ void assert_strings_equal_n(const char * str1, const char * str2, int n) {
 
 void assert_ints_equal(int i1, int i2) {
 	char msg[128];
-	sprintf(msg, "0x%x to be equal to 0x%x", i1, i2); 
+	sprintf(msg, "%d to be equal to %d", i1, i2); 
 	core_assert((i1==i2), msg);
 }
